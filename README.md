@@ -16,22 +16,31 @@ Prepare the infrastructure for a 3 2 1 backup strategy using offline external dr
 Step 1 System Update and Docker Installation
 
 The first step is to ensure the host operating system is up to date and to install the required containerization software. We update the package lists and install docker and docker compose.
+
 sudo apt update
+
 sudo apt upgrade -y
+
 sudo apt install docker.io docker-compose -y
 
 After installation the Docker service is enabled to start automatically on system boot.
+
 sudo systemctl enable docker
+
 sudo systemctl start docker
 
 Step 2 Prepare the Application Directory
 
 A dedicated directory named personal cloud is created to host the configuration files.
+
 mkdir personal-cloud
+
 cd personal-cloud
 
 Inside this directory the official docker compose and environment files are downloaded.
+
 wget -O docker-compose.yml https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml
+
 wget -O .env https://github.com/immich-app/immich/releases/latest/download/example.env
 
 Step 3 Configuration and Container Deployment
@@ -41,10 +50,13 @@ nano docker-compose.yml
 Remove the first line containing name immich and save the file.
 
 The environment file is modified to set the UPLOAD LOCATION to our designated data folder and to configure a secure database password.
+
 nano .env
+
 Change UPLOAD_LOCATION to ./immich-data and set a secure DB_PASSWORD.
 
 Initialize the application in the background.
+
 sudo docker-compose up -d
 
 Step 4 Application Initialization and Admin Setup
