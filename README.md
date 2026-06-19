@@ -1,4 +1,4 @@
-Project Title Personal Cloud and Automated Backup Server
+Project Title Personal Cloud and Automated Backup Server 
 
 Project Overview
 The objective of this project is to deploy a private self hosted photo and video synchronization platform using Immich. The system provides an alternative to commercial cloud services giving full control over personal data.
